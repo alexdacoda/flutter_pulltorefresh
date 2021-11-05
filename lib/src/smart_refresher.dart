@@ -198,6 +198,9 @@ class SmartRefresher extends StatefulWidget {
 
   /// copy from ScrollView,for setting in SingleChildView,not ScrollView
   final DragStartBehavior? dragStartBehavior;
+    
+  //add optional appbar
+  final AppBar? appBar;  
 
   /// creates a widget help attach the refresh and load more function
   /// controller must not be null,
@@ -404,11 +407,31 @@ class SmartRefresherState extends State<SmartRefresher> {
         clipBehavior = clipBehavior ?? childView.clipBehavior;
         scrollController = scrollController ?? childView.controller;
       }
-      body = CustomScrollView(
+      body = this.appBar == null ? CustomScrollView(
         // ignore: DEPRECATED_MEMBER_USE_FROM_SAME_PACKAGE
         controller: scrollController,
         cacheExtent: cacheExtent,
         key: key,
+        scrollDirection: scrollDirection ?? Axis.vertical,
+        semanticChildCount: semanticChildCount,
+        primary: primary,
+        clipBehavior: clipBehavior ?? Clip.hardEdge,
+        keyboardDismissBehavior:
+            keyboardDismissBehavior ?? ScrollViewKeyboardDismissBehavior.manual,
+        anchor: anchor ?? 0.0,
+        restorationId: restorationId,
+        center: center,
+        physics:
+            _getScrollPhysics(conf, physics ?? AlwaysScrollableScrollPhysics()),
+        slivers: slivers!,
+        dragStartBehavior: dragStartBehavior ?? DragStartBehavior.start,
+        reverse: reverse ?? false,
+      ): CustomScrollView(
+        // ignore: DEPRECATED_MEMBER_USE_FROM_SAME_PACKAGE
+        controller: scrollController,
+        cacheExtent: cacheExtent,
+        key: key,
+        appBar: this.appBar,  
         scrollDirection: scrollDirection ?? Axis.vertical,
         semanticChildCount: semanticChildCount,
         primary: primary,
