@@ -333,7 +333,7 @@ class SmartRefresherState extends State<SmartRefresher> {
           defaultFooter);
     }
 
-    if(this.appBar != null) slivers?.add(0, this.appBar);
+    if(widget.appBar != null) slivers?.add(0, widget.appBar);
 
     return slivers;
   }
