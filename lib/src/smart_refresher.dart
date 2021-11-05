@@ -200,7 +200,7 @@ class SmartRefresher extends StatefulWidget {
   final DragStartBehavior? dragStartBehavior;
     
   //add optional appbar
-  final AppBar? appBar;  
+  final Widget? appBar;  
 
   /// creates a widget help attach the refresh and load more function
   /// controller must not be null,
