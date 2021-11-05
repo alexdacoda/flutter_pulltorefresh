@@ -213,6 +213,7 @@ class SmartRefresher extends StatefulWidget {
   SmartRefresher(
       {Key? key,
       required this.controller,
+      this.appBar,
       this.child,
       this.header,
       this.footer,
