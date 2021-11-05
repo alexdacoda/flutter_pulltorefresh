@@ -332,6 +332,8 @@ class SmartRefresherState extends State<SmartRefresher> {
           defaultFooter);
     }
 
+    if(this.appBar != null) slivers?.add(0, this.appBar);
+
     return slivers;
   }
 
@@ -407,31 +409,11 @@ class SmartRefresherState extends State<SmartRefresher> {
         clipBehavior = clipBehavior ?? childView.clipBehavior;
         scrollController = scrollController ?? childView.controller;
       }
-      body = this.appBar == null ? CustomScrollView(
+      body = CustomScrollView(
         // ignore: DEPRECATED_MEMBER_USE_FROM_SAME_PACKAGE
         controller: scrollController,
         cacheExtent: cacheExtent,
         key: key,
-        scrollDirection: scrollDirection ?? Axis.vertical,
-        semanticChildCount: semanticChildCount,
-        primary: primary,
-        clipBehavior: clipBehavior ?? Clip.hardEdge,
-        keyboardDismissBehavior:
-            keyboardDismissBehavior ?? ScrollViewKeyboardDismissBehavior.manual,
-        anchor: anchor ?? 0.0,
-        restorationId: restorationId,
-        center: center,
-        physics:
-            _getScrollPhysics(conf, physics ?? AlwaysScrollableScrollPhysics()),
-        slivers: slivers!,
-        dragStartBehavior: dragStartBehavior ?? DragStartBehavior.start,
-        reverse: reverse ?? false,
-      ): CustomScrollView(
-        // ignore: DEPRECATED_MEMBER_USE_FROM_SAME_PACKAGE
-        controller: scrollController,
-        cacheExtent: cacheExtent,
-        key: key,
-        appBar: this.appBar,  
         scrollDirection: scrollDirection ?? Axis.vertical,
         semanticChildCount: semanticChildCount,
         primary: primary,
