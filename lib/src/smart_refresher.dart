@@ -252,6 +252,7 @@ class SmartRefresher extends StatefulWidget {
     this.onLoading,
     this.onTwoLevel,
   })  : header = null,
+        appBar = null,
         footer = null,
         child = null,
         scrollController = null,
